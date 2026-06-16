@@ -1,0 +1,12 @@
+bin/
+obj/
+.vs/
+.git/
+.gitignore
+*.user
+*.suo
+*.tmp
+*.db
+*.db-shm
+*.db-wal
+README.md
