@@ -118,16 +118,6 @@ async Task SeedRolesAndAdminAsync(
         await roleManager.CreateAsync(new IdentityRole(adminRole));
     }
 
-    // Remove old demo admin account if it exists
-    const string oldDemoEmail = "admin@test.com";
-    var oldDemoUser = await userManager.FindByEmailAsync(oldDemoEmail);
-
-    if (oldDemoUser != null &&
-        !oldDemoEmail.Equals(adminEmail, StringComparison.OrdinalIgnoreCase))
-    {
-        await userManager.DeleteAsync(oldDemoUser);
-    }
-
     var adminUser = await userManager.FindByEmailAsync(adminEmail);
 
     if (adminUser == null)
