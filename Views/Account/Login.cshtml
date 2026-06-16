@@ -1,0 +1,91 @@
+﻿@model MyCityProject.Models.LoginModel
+
+@{
+    Layout = "~/Views/Shared/_LoginLayout.cshtml";
+    ViewData["Title"] = "Admin Login";
+}
+
+<div class="login-page">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center align-items-center min-vh-100">
+            <div class="card shadow admin-login-card">
+                <div class="card-body p-4">
+                    <h2 class="text-center mb-2">Admin Login</h2>
+
+                    <p class="text-center text-light mb-4">
+                        Restricted access for website administrators only
+                    </p>
+
+                    <form asp-action="Login" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label">Email</label>
+                            <input asp-for="Email"
+                                   class="form-control"
+                                   placeholder="Enter admin email"
+                                   autocomplete="username" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label">Password</label>
+
+                            <div class="input-group">
+                                <input asp-for="Password"
+                                       id="passwordInput"
+                                       class="form-control"
+                                       type="password"
+                                       placeholder="Enter password"
+                                       autocomplete="current-password" />
+
+                                <button class="btn btn-outline-light"
+                                        type="button"
+                                        id="togglePasswordButton">
+                                    Show
+                                </button>
+                            </div>
+
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3 form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary w-100 login-btn">
+                            Login
+                        </button>
+                    </form>
+
+                    <div class="text-center mt-3">
+                        <a asp-controller="Home" asp-action="Index" class="back-home-link">
+                            Back to public website
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+
+    <script>
+        const passwordInput = document.getElementById("passwordInput");
+        const togglePasswordButton = document.getElementById("togglePasswordButton");
+
+        togglePasswordButton.addEventListener("click", function () {
+            const isPasswordHidden = passwordInput.type === "password";
+
+            passwordInput.type = isPasswordHidden ? "text" : "password";
+            togglePasswordButton.textContent = isPasswordHidden ? "Hide" : "Show";
+        });
+    </script>
+}

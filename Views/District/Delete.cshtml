@@ -1,0 +1,54 @@
+﻿@model MyCityProject.Models.District
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Delete District";
+}
+
+<section class="admin-page py-5">
+    <div class="container">
+        <div class="page-panel admin-form-panel">
+
+            <div class="mb-4">
+                <h1>Delete District</h1>
+                <p class="text-muted mb-0">
+                    Confirm that you want to remove this district entry.
+                </p>
+            </div>
+
+            <div class="alert alert-danger">
+                <strong>Warning:</strong>
+                This action will delete the district
+                <strong>@Model.Name</strong>.
+            </div>
+
+            <div class="district-delete-preview mb-4">
+                <img src="@Model.ImagePath"
+                     alt="@Model.Name"
+                     class="district-delete-img" />
+
+                <div>
+                    <h4>@Model.Name</h4>
+                    <p class="text-muted mb-0">@Model.Description</p>
+                </div>
+            </div>
+
+            <form asp-action="Delete" method="post">
+                @Html.AntiForgeryToken()
+
+                <input type="hidden" asp-for="Id" />
+
+                <div class="d-flex gap-2">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-1"></i>Delete
+                    </button>
+
+                    <a asp-action="Index" class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

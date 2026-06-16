@@ -1,0 +1,27 @@
+﻿@model MyCityProject.Models.Booking
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Редактирование брони</h2>
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+    <div>
+        <label asp-for="Title"></label>
+        <input asp-for="Title" />
+        <span asp-validation-for="Title"></span>
+    </div>
+    <div>
+        <label asp-for="Description"></label>
+        <input asp-for="Description" />
+        <span asp-validation-for="Description"></span>
+    </div>
+    <div>
+        <label asp-for="Date"></label>
+        <input asp-for="Date" type="date" />
+        <span asp-validation-for="Date"></span>
+    </div>
+
+    <button type="submit">Сохранить</button>
+</form>

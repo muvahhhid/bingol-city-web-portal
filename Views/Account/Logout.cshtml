@@ -1,0 +1,33 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Logout";
+}
+
+<section class="admin-page py-5">
+    <div class="container">
+        <div class="page-panel admin-form-panel text-center">
+
+            <h1>Logout</h1>
+
+            <p class="text-muted mb-4">
+                Are you sure you want to log out from the admin area?
+            </p>
+
+            <form asp-controller="Account" asp-action="LogoutConfirmed" method="post">
+                @Html.AntiForgeryToken()
+
+                <div class="d-flex justify-content-center gap-2">
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-sign-out-alt me-1"></i>
+                        Logout
+                    </button>
+
+                    <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">
+                        Cancel
+                    </a>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</section>

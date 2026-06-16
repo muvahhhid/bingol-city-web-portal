@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Bingöl City Web Portal</title>
+
+    <link rel="icon"
+      type="image/png"
+      href="~/images/bingol-logo.png"
+      asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/custom.css"
+          asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+</head>
+
+<body class="main-body">
+
+    <!-- Video Background -->
+    <div class="video-background">
+        <video autoplay muted loop playsinline>
+            <source src="~/videos/video4.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark public-navbar py-3">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                Bingöl City Web Portal
+            </a>
+
+            <button class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#mainNavbar"
+                    aria-controls="mainNavbar"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse justify-content-end" id="mainNavbar">
+                <ul class="navbar-nav align-items-lg-center gap-lg-2">
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index">
+                            <i class="fas fa-home me-1"></i>Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="City" asp-action="About">
+                            <i class="fas fa-city me-1"></i>City Info
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="District" asp-action="Index">
+                            <i class="fas fa-map-marked-alt me-1"></i>Districts
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Population" asp-action="Index">
+                            <i class="fas fa-users me-1"></i>Population
+                        </a>
+                    </li>
+
+                    @if (User.Identity?.IsAuthenticated ?? false)
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light nav-admin-btn"
+                               asp-controller="Account"
+                               asp-action="Logout">
+                                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                            </a>
+                        </li>
+                    }
+                    else
+                    {
+                        <li class="nav-item">
+                            <a class="btn btn-outline-light nav-admin-btn"
+                               asp-controller="Account"
+                               asp-action="Login">
+                                <i class="fas fa-user-lock me-1"></i>Admin Login
+                            </a>
+                        </li>
+                    }
+                    <li class="nav-item language-nav-item">
+                        <div class="gtranslate_wrapper"></div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <main class="container mt-4">
+        @RenderBody()
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer text-white py-3 mt-5">
+        <div class="container">
+            <p class="text-center m-0">
+                &copy; @DateTime.Now.Year - Bingöl City Web Portal
+            </p>
+        </div>
+    </footer>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+            asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    <!-- Language Widget -->
+<script>
+    window.gtranslateSettings = {
+        "default_language": "en",
+        "languages": ["en", "tr", "ru"],
+        "wrapper_selector": ".gtranslate_wrapper",
+        "native_language_names": true
+    };
+</script>
+
+<script src="https://cdn.gtranslate.net/widgets/latest/dropdown.js" defer></script>
+
+<script>
+    function cleanLanguageDropdown() {
+        const select = document.querySelector(".gtranslate_wrapper select");
+
+        if (!select) {
+            return;
+        }
+
+        Array.from(select.options).forEach(option => {
+            const text = option.textContent.trim().toLowerCase();
+
+            if (text === "select language") {
+                option.remove();
+            }
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+        setTimeout(cleanLanguageDropdown, 800);
+        setTimeout(cleanLanguageDropdown, 1500);
+        setTimeout(cleanLanguageDropdown, 2500);
+    });
+</script>
+</body>
+</html>

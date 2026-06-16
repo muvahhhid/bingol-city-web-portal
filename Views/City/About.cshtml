@@ -1,0 +1,207 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "City Info";
+}
+
+<section class="city-about-page py-5">
+
+    <!-- Intro Panel -->
+    <div class="container">
+        <div class="page-panel mb-5">
+            <div class="text-center mb-4">
+                <span class="hero-badge dark-badge">City Overview</span>
+                <h1 class="mt-3">About Bingöl</h1>
+                <p class="lead text-muted">
+                    Bingöl is a province in Eastern Anatolia, Türkiye. It is known for
+                    its mountain landscapes, districts, natural water sources and rural culture.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="info-card h-100">
+                        <i class="fas fa-water info-icon"></i>
+                        <h4>Water and Nature</h4>
+                        <p>
+                            Bingöl is strongly associated with water sources, waterfalls,
+                            highland areas and natural scenery.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card h-100">
+                        <i class="fas fa-map info-icon"></i>
+                        <h4>Districts and Villages</h4>
+                        <p>
+                            The governor's office lists 7 district governorships and
+                            315 villages in Bingöl province.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card h-100">
+                        <i class="fas fa-tree info-icon"></i>
+                        <h4>Natural Attractions</h4>
+                        <p>
+                            Important attractions include Yüzen Ada, Çır Waterfall,
+                            Hesarek Ski Center and distinctive rock formations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carousel -->
+    <div class="container mb-5">
+        <div id="bingolCarousel" class="carousel slide shadow" data-bs-ride="carousel">
+
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#bingolCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Çır Waterfall"></button>
+                <button type="button" data-bs-target="#bingolCarousel" data-bs-slide-to="1" aria-label="Yüzen Ada"></button>
+                <button type="button" data-bs-target="#bingolCarousel" data-bs-slide-to="2" aria-label="Rock Formations"></button>
+                <button type="button" data-bs-target="#bingolCarousel" data-bs-slide-to="3" aria-label="City and Mountain View"></button>
+                <button type="button" data-bs-target="#bingolCarousel" data-bs-slide-to="4" aria-label="Lake View"></button>
+            </div>
+
+            <div class="carousel-inner">
+
+                <div class="carousel-item active">
+                    <img src="/images/bingol2.jpg" class="d-block w-100" alt="Çır Waterfall">
+                    <div class="carousel-caption">
+                        <h5>Çır Waterfall</h5>
+                        <p>
+                            A well-known natural attraction in Bingöl, connected with
+                            the region's mountain and water landscapes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/images/bingol5.jpg" class="d-block w-100" alt="Yüzen Ada and lake landscape">
+                    <div class="carousel-caption">
+                        <h5>Yüzen Ada</h5>
+                        <p>
+                            Yüzen Ada is a natural formation in the Solhan area and is one
+                            of the most distinctive natural symbols of Bingöl.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/images/bingol3.jpg" class="d-block w-100" alt="Bingöl rock formations">
+                    <div class="carousel-caption">
+                        <h5>Buban Fairy Chimneys and Rock Formations</h5>
+                        <p>
+                            Bingöl's wider landscape includes striking rocky areas and
+                            natural formations.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/images/bingol1.jpg" class="d-block w-100" alt="Bingöl city view">
+                    <div class="carousel-caption">
+                        <h5>Bingöl City View</h5>
+                        <p>
+                            The province combines urban life with surrounding mountains,
+                            valleys and rural settlements.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <img src="/images/bingol4.jpg" class="d-block w-100" alt="Bingöl mountain landscape">
+                    <div class="carousel-caption">
+                        <h5>Mountain Landscape</h5>
+                        <p>
+                            Bingöl's geography is shaped by highlands, mountain views
+                            and natural travel routes.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#bingolCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#bingolCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+
+        </div>
+    </div>
+
+    <!-- Places Section -->
+    <div class="container">
+        <div class="page-panel mb-5">
+            <div class="text-center mb-4">
+                <h2>Known Places and Routes</h2>
+                <p class="text-muted">
+                    This section presents selected places associated with Bingöl's nature,
+                    districts and tourism potential.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="info-card h-100">
+                        <h4>Yüzen Ada</h4>
+                        <p>
+                            Located in the Solhan area, Yüzen Ada is a natural formation
+                            known for floating island-like land pieces on a lake surface.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card h-100">
+                        <h4>Hesarek Ski Center</h4>
+                        <p>
+                            Hesarek Ski Center is located near Dikme village, around
+                            34 km from Bingöl city center, and is used for winter tourism.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="info-card h-100">
+                        <h4>Çır Waterfall</h4>
+                        <p>
+                            Çır Waterfall is one of the natural places commonly listed
+                            among Bingöl's travel attractions.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Map -->
+    <div class="container">
+        <div class="page-panel">
+            <div class="text-center mb-4">
+                <h2>Bingöl Map</h2>
+                <p class="text-muted">
+                    Bingöl is located in Eastern Anatolia, Türkiye.
+                </p>
+            </div>
+
+            <div class="ratio ratio-16x9 rounded overflow-hidden shadow-sm">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31155.34576754461!2d40.58756653261753!3d38.88559756832883!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x400abf329ce8e66f%3A0x6f34a59c1b4db0c2!2sBing%C3%B6l%2C%20Turkey!5e0!3m2!1sen!2str!4v1676487911538!5m2!1sen!2str"
+                        style="border:0;"
+                        allowfullscreen
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+        </div>
+    </div>
+
+</section>

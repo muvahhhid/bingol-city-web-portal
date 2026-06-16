@@ -1,0 +1,36 @@
+﻿@* Views/Shared/_AuthLayout.cshtml *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth Layout</title>
+
+    <!-- Локальный Bootstrap CSS -->
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+    <!-- Font Awesome (CDN) -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+          integrity="sha384-dyBq6sTqGrhXPT5TuXYPbgN68Ksf7CrpBi5v4kYykJBZZv1L08eQXMjfZ5SxHtmD"
+          crossorigin="anonymous" />
+
+    <!-- Ваши стили -->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <!-- Нет навбара -->
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+
+    <!-- Локальный Bootstrap JS -->
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

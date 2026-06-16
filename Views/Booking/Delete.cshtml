@@ -1,0 +1,13 @@
+﻿@model MyCityProject.Models.Booking
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удалить бронь</h2>
+<form asp-action="DeleteConfirmed" method="post">
+    <input type="hidden" asp-for="Id" />
+    <p>Вы уверены, что хотите удалить бронь "@Model.Title"?</p>
+    <button type="submit">Удалить</button>
+    <a asp-action="Index">Отмена</a>
+</form>

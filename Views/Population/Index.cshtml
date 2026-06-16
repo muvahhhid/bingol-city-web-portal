@@ -1,0 +1,190 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Population";
+}
+
+@{
+    var populationData = new[]
+    {
+        new { Year = 2021, Population = 283112 },
+        new { Year = 2022, Population = 282556 },
+        new { Year = 2023, Population = 285655 },
+        new { Year = 2024, Population = 283276 },
+        new { Year = 2025, Population = 282299 }
+    };
+
+    var latestPopulation = populationData.Last().Population;
+    var previousPopulation = populationData[populationData.Length - 2].Population;
+    var populationChange = latestPopulation - previousPopulation;
+    var highestPopulation = populationData.Max(x => x.Population);
+    var lowestPopulation = populationData.Min(x => x.Population);
+}
+
+<section class="population-page py-5">
+    <div class="container">
+        <div class="page-panel population-wrapper">
+
+            <div class="text-center mb-4">
+                <h1 class="fw-bold">Bingöl Population</h1>
+                <p class="text-muted mb-0">
+                    Official population overview for Bingöl province based on recent yearly data.
+                </p>
+            </div>
+
+            <div class="row g-3 mb-4">
+                <div class="col-md-3">
+                    <div class="card population-stat-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-muted">Latest population</h6>
+                            <h3>@latestPopulation.ToString("N0")</h3>
+                            <p class="mb-0 text-muted">Year 2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card population-stat-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-muted">Change from 2024</h6>
+                            <h3 class="@(populationChange < 0 ? "text-danger" : "text-success")">
+                                @populationChange.ToString("N0")
+                            </h3>
+                            <p class="mb-0 text-muted">Compared with 2024</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card population-stat-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-muted">Highest value</h6>
+                            <h3>@highestPopulation.ToString("N0")</h3>
+                            <p class="mb-0 text-muted">Within 2021–2025</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="card population-stat-card h-100">
+                        <div class="card-body">
+                            <h6 class="text-muted">Lowest value</h6>
+                            <h3>@lowestPopulation.ToString("N0")</h3>
+                            <p class="mb-0 text-muted">Within 2021–2025</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info">
+                <strong>Note:</strong> The data shown here is used for portfolio/demo purposes and is based on
+                published population statistics for Bingöl. The 2025 population is 282,299.
+            </div>
+
+            <div class="table-responsive mb-5">
+                <table id="populationTable" class="table table-bordered table-hover align-middle shadow-sm">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Year</th>
+                            <th class="text-center">Population</th>
+                            <th class="text-center">Yearly Change</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (int i = 0; i < populationData.Length; i++)
+                        {
+                            var current = populationData[i];
+                            int? change = null;
+
+                            if (i > 0)
+                            {
+                                change = current.Population - populationData[i - 1].Population;
+                            }
+
+                            <tr class="text-center">
+                                <td>@current.Year</td>
+                                <td>@current.Population.ToString("N0")</td>
+                                <td>
+                                    @if (change == null)
+                                    {
+                                        <span class="text-muted">-</span>
+                                    }
+                                    else if (change < 0)
+                                    {
+                                        <span class="text-danger">@change.Value.ToString("N0")</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="text-success">+@change.Value.ToString("N0")</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="population-chart-card">
+                <h4 class="text-center mb-3">Population Trend</h4>
+                <canvas id="populationChart" style="max-height: 380px;"></canvas>
+            </div>
+
+            <div class="mt-4 text-muted small text-center">
+                Source reference: TÜİK-based yearly population data, displayed in this project for educational and portfolio purposes.
+            </div>
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const years = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(populationData.Select(x => x.Year)));
+        const populations = @Html.Raw(System.Text.Json.JsonSerializer.Serialize(populationData.Select(x => x.Population)));
+
+        const ctx = document.getElementById("populationChart").getContext("2d");
+
+        new Chart(ctx, {
+            type: "line",
+            data: {
+                labels: years,
+                datasets: [{
+                    label: "Population",
+                    data: populations,
+                    borderWidth: 3,
+                    tension: 0.3,
+                    fill: true,
+                    backgroundColor: "rgba(13, 110, 253, 0.15)",
+                    borderColor: "rgba(13, 110, 253, 1)",
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "top"
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return "Population: " + context.raw.toLocaleString();
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        ticks: {
+                            callback: function(value) {
+                                return value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+}

@@ -1,0 +1,71 @@
+﻿@* _Layout.cshtml *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MyCityProject</title>
+
+    <!-- Bootstrap 5 (CDN) -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+          integrity="sha384-ENjdO4Dr2bkBIFxQpeoI5gK3r57snc9k04K3Rnm6z8o0yF9RSkv9ymTP1+5d8rY9"
+          crossorigin="anonymous" />
+
+    <!-- Кастомные стили -->
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/custom.css" />
+
+    @RenderSection("Styles", required: false)
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">MyCityProject</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain" aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <!-- Левое меню (примеры ссылок) -->
+                <ul style="display: flex; justify-content: center; align-items: center;" class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="City" asp-action="About">City Info</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="District" asp-action="Index">Districts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Population" asp-action="Index">Population</a>
+                    </li>
+                </ul>
+
+                <!-- Правое меню: кнопки смены языка -->
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index" asp-route-culture="en">
+                            English
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Home" asp-action="Index" asp-route-culture="tr">
+                            Türkçe
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        @RenderBody()
+    </div>
+
+    @RenderSection("Scripts", required: false)
+
+    <!-- Bootstrap 5 JS (CDN) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-qQfUJ9K9Rx0gZWkBChBqLDzrRQvx80DwM1seIu3VRY85j7BhnHoJpHlI3eDkhfb5"
+            crossorigin="anonymous"></script>
+</body>
+</html>

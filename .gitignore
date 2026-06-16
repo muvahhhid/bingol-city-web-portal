@@ -1,0 +1,28 @@
+# Build output
+bin/
+obj/
+
+# Visual Studio / Rider / VS Code
+.vs/
+*.user
+*.suo
+*.rsuser
+
+# Temporary files
+*.tmp
+*.log
+
+# SQLite local database files
+*.db
+*.db-shm
+*.db-wal
+
+# User secrets / local settings
+secrets.json
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Publish output
+publish/

@@ -1,0 +1,723 @@
+﻿/* custom.css */
+
+/* =========================
+   Base / Video Background
+   ========================= */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.video-background {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -2;
+}
+
+    .video-background video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .video-background::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(6, 16, 24, 0.55);
+        z-index: 1;
+    }
+
+.main-body {
+    position: relative;
+    min-height: 100vh;
+    z-index: 1;
+}
+
+/* =========================
+   Public Navbar
+   ========================= */
+
+.public-navbar {
+    background: rgba(8, 20, 30, 0.78);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+    position: relative;
+    z-index: 20;
+}
+
+    .public-navbar .navbar-brand {
+        color: #ffffff !important;
+        font-size: 1.3rem;
+        letter-spacing: 0.3px;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    }
+
+    .public-navbar .nav-link {
+        color: #ffffff !important;
+        font-weight: 600;
+        border-radius: 10px;
+        padding: 0.55rem 0.85rem;
+        transition: all 0.25s ease;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    }
+
+        .public-navbar .nav-link:hover,
+        .public-navbar .nav-link:focus {
+            color: #0f2533 !important;
+            background: rgba(255, 255, 255, 0.92);
+            transform: translateY(-1px);
+            text-shadow: none;
+        }
+
+.nav-admin-btn {
+    border-radius: 10px;
+    font-weight: 600;
+    padding: 0.55rem 0.9rem;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, 0.8);
+    transition: all 0.25s ease;
+}
+
+    .nav-admin-btn:hover {
+        background: #ffffff;
+        color: #0f2533 !important;
+        border-color: #ffffff;
+    }
+
+/* =========================
+   GTranslate Widget
+   ========================= */
+
+.language-nav-item {
+    display: flex;
+    align-items: center;
+}
+
+.gtranslate_wrapper select {
+    min-width: 130px;
+    max-width: 150px;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    padding: 0.55rem 0.75rem;
+    background: rgba(255, 255, 255, 0.94);
+    color: #111827;
+    font-weight: 600;
+    outline: none;
+    cursor: pointer;
+}
+
+    .gtranslate_wrapper select {
+        min-width: 120px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.75);
+        padding: 0.55rem 0.75rem;
+        background: rgba(255, 255, 255, 0.94);
+        color: #111827;
+        font-weight: 600;
+        outline: none;
+    }
+
+        .gtranslate_wrapper select:hover {
+            background: #ffffff;
+        }
+
+@media (max-width: 991px) {
+    .language-nav-item {
+        margin-top: 0.75rem;
+    }
+
+    .gtranslate_wrapper select {
+        width: 100%;
+    }
+}
+
+/* =========================
+   Home / Hero Section
+   ========================= */
+
+.hero-section,
+.home-hero {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 5rem 1rem 3rem;
+}
+
+    .hero-title,
+    .home-hero h1,
+    main h1 {
+        color: #ffffff;
+        font-size: clamp(2.4rem, 6vw, 4.6rem);
+        font-weight: 800;
+        text-shadow: 0 4px 18px rgba(0, 0, 0, 0.75);
+    }
+
+    .hero-subtitle,
+    .home-hero p {
+        color: #ffffff;
+        font-size: clamp(1.1rem, 2vw, 1.55rem);
+        text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+    }
+
+main .btn-primary {
+    border-radius: 10px;
+    padding: 0.8rem 1.4rem;
+    font-weight: 600;
+}
+
+/* =========================
+   Cards / Content Containers
+   ========================= */
+
+.card {
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+}
+
+    /* Important:
+   Do not scale every card globally.
+   This was causing images/cards to cover nearby titles.
+*/
+    .card:hover {
+        transform: none;
+    }
+
+.content-panel,
+.page-panel,
+.population-container,
+.city-info-container,
+.district-container {
+    background: rgba(255, 255, 255, 0.94);
+    border-radius: 18px;
+    padding: 2rem;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.22);
+}
+
+/* =========================
+   Population Page
+   ========================= */
+
+.population-card,
+.population-section,
+.population-wrapper {
+    background: rgba(255, 255, 255, 0.96);
+    color: #1f2933;
+    border-radius: 18px;
+    padding: 2rem;
+}
+
+    .population-card h1,
+    .population-card h2,
+    .population-section h1,
+    .population-section h2,
+    .population-wrapper h1,
+    .population-wrapper h2 {
+        color: #263b63;
+    }
+
+.table {
+    background: #ffffff;
+}
+
+    .table th {
+        background: #f1f5f9;
+        color: #111827;
+    }
+
+    .table td {
+        color: #111827;
+    }
+
+/* =========================
+   Gallery / Carousel
+   ========================= */
+
+.carousel,
+.carousel-inner,
+.carousel-item {
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+    .carousel-item img {
+        width: 100%;
+        height: 480px;
+        object-fit: cover;
+    }
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.58);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+}
+
+    .carousel-caption h5,
+    .carousel-caption p {
+        color: #ffffff;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+    }
+
+/* If normal image cards are used instead of Bootstrap carousel */
+.place-card {
+    overflow: hidden;
+    border-radius: 18px;
+    background: #ffffff;
+}
+
+    .place-card img {
+        width: 100%;
+        height: 260px;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
+
+    .place-card:hover img {
+        transform: scale(1.04);
+    }
+
+    .place-card:hover {
+        transform: none;
+    }
+
+/* =========================
+   Admin Login Page
+   ========================= */
+
+.login-body {
+    min-height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.55)), url('/images/city_background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.login-page {
+    min-height: 100vh;
+}
+
+.admin-login-card {
+    width: 100%;
+    max-width: 430px;
+    border: none;
+    border-radius: 18px;
+    background: rgba(10, 20, 25, 0.88);
+    color: #ffffff;
+    backdrop-filter: blur(6px);
+}
+
+    .admin-login-card h2 {
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .admin-login-card .form-label {
+        color: #ffffff;
+        font-weight: 500;
+    }
+
+    .admin-login-card .form-check-label {
+        color: #ffffff;
+    }
+
+    .admin-login-card .form-control {
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+        .admin-login-card .form-control:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+.login-btn {
+    border-radius: 10px;
+    padding: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.back-home-link {
+    color: #d7ecff;
+    text-decoration: none;
+    font-size: 0.95rem;
+}
+
+    .back-home-link:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+
+/* =========================
+   Footer
+   ========================= */
+
+.site-footer {
+    background: rgba(8, 20, 30, 0.88);
+    backdrop-filter: blur(8px);
+}
+
+/* =========================
+   Responsive
+   ========================= */
+
+@media (max-width: 991px) {
+    .public-navbar {
+        background: rgba(8, 20, 30, 0.92);
+    }
+
+        .public-navbar .navbar-nav {
+            padding-top: 1rem;
+        }
+
+    .nav-admin-btn {
+        margin-top: 0.5rem;
+    }
+
+    .gtranslate_wrapper {
+        top: 82px;
+        right: 14px;
+    }
+
+    .carousel-item img {
+        height: 320px;
+    }
+}
+
+@media (max-width: 576px) {
+    .content-panel,
+    .page-panel,
+    .population-container,
+    .city-info-container,
+    .district-container {
+        padding: 1.25rem;
+    }
+
+    .carousel-item img {
+        height: 260px;
+    }
+}
+/* =========================
+   Population Page - Improved
+   ========================= */
+
+.population-page {
+    position: relative;
+    z-index: 5;
+}
+
+.population-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.population-stat-card {
+    background: #ffffff;
+    border-radius: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+    .population-stat-card h3 {
+        color: #1f3b73;
+        font-weight: 800;
+    }
+
+.population-chart-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.10);
+}
+
+    .population-chart-card h4 {
+        color: #1f3b73;
+        font-weight: 700;
+    }
+/* =========================
+   Home and City About Pages
+   ========================= */
+
+.home-page,
+.city-about-page {
+    position: relative;
+    z-index: 5;
+}
+
+.home-hero {
+    min-height: 68vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 1rem 3rem;
+}
+
+.home-hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.home-hero h1 {
+    color: #ffffff;
+    font-size: clamp(2.6rem, 7vw, 5rem);
+    font-weight: 800;
+    text-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+}
+
+.home-hero p {
+    color: #ffffff;
+    font-size: clamp(1.1rem, 2vw, 1.55rem);
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.18);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    padding: 0.45rem 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(6px);
+}
+
+.dark-badge {
+    background: rgba(31, 59, 115, 0.1);
+    color: #1f3b73;
+    border-color: rgba(31, 59, 115, 0.2);
+}
+
+.page-panel {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.22);
+}
+
+    .page-panel h1,
+    .page-panel h2,
+    .page-panel h3 {
+        color: #1f3b73;
+        font-weight: 800;
+    }
+
+.info-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 1.5rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+}
+
+    .info-card h4 {
+        color: #1f3b73;
+        font-weight: 700;
+    }
+
+    .info-card p {
+        color: #4b5563;
+        margin-bottom: 0;
+    }
+
+.info-icon {
+    font-size: 2rem;
+    color: #0d6efd;
+    margin-bottom: 1rem;
+}
+
+.section-title-light {
+    color: #ffffff;
+    font-weight: 800;
+    text-shadow: 0 4px 14px rgba(0, 0, 0, 0.75);
+}
+
+.section-subtitle-light {
+    color: #ffffff;
+    font-size: 1.1rem;
+    text-shadow: 0 3px 12px rgba(0, 0, 0, 0.75);
+}
+
+.place-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+}
+
+    .place-card img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.3s ease;
+    }
+
+    .place-card:hover img {
+        transform: scale(1.035);
+    }
+
+.place-card-body {
+    padding: 1.2rem;
+}
+
+    .place-card-body h5,
+    .place-card-body h6 {
+        color: #1f3b73;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    .place-card-body p {
+        color: #4b5563;
+        margin-bottom: 0;
+    }
+
+.district-preview-img {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+}
+
+.carousel {
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.carousel-item img {
+    height: 560px;
+    object-fit: cover;
+}
+
+.carousel-caption {
+    background: rgba(0, 0, 0, 0.62);
+    border-radius: 14px;
+    padding: 1rem 1.25rem;
+}
+
+    .carousel-caption h5 {
+        color: #ffffff;
+        font-weight: 800;
+    }
+
+    .carousel-caption p {
+        color: #ffffff;
+        margin-bottom: 0;
+    }
+
+@media (max-width: 768px) {
+    .page-panel {
+        padding: 1.25rem;
+    }
+
+    .carousel-item img {
+        height: 340px;
+    }
+
+    .district-preview-img {
+        height: 140px;
+    }
+}
+/* =========================
+   District Pages
+   ========================= */
+
+.district-page,
+.admin-page {
+    position: relative;
+    z-index: 5;
+}
+
+.district-card {
+    background: #ffffff;
+    border-radius: 18px;
+    overflow: hidden;
+    height: 100%;
+    box-shadow: 0 8px 26px rgba(0, 0, 0, 0.18);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+    .district-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 34px rgba(0, 0, 0, 0.24);
+    }
+
+.district-card-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+}
+
+.district-card-body {
+    padding: 1.25rem;
+}
+
+    .district-card-body h5 {
+        color: #1f3b73;
+        font-weight: 800;
+        margin-bottom: 0.75rem;
+    }
+
+    .district-card-body p {
+        color: #4b5563;
+        margin-bottom: 0;
+    }
+
+.admin-form-panel {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+    .admin-form-panel .form-label {
+        color: #1f2937;
+        font-weight: 600;
+    }
+
+    .admin-form-panel .form-control {
+        border-radius: 10px;
+        padding: 0.75rem;
+    }
+
+    .admin-form-panel h1 {
+        color: #1f3b73;
+        font-weight: 800;
+    }
+
+.district-delete-preview {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 14px;
+    padding: 1rem;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+.district-delete-img {
+    width: 160px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+@media (max-width: 576px) {
+    .district-delete-preview {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .district-delete-img {
+        width: 100%;
+        height: 180px;
+    }
+}

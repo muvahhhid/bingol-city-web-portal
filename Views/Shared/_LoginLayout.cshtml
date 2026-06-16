@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>@ViewData["Title"] - Bingöl City Web Portal</title>
+
+    <link rel="icon"
+      type="image/png"
+      href="~/images/bingol-logo.png"
+      asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/site.css"
+          asp-append-version="true" />
+
+    <link rel="stylesheet"
+          href="~/css/custom.css"
+          asp-append-version="true" />
+
+    @RenderSection("Styles", required: false)
+</head>
+
+<body class="login-body">
+    <main>
+        @RenderBody()
+    </main>
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+            asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

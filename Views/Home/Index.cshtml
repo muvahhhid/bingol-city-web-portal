@@ -1,0 +1,212 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Home";
+}
+
+<section class="home-page">
+
+    <!-- Hero Section -->
+    <section class="home-hero text-center">
+        <div class="home-hero-content">
+            <span class="hero-badge">Eastern Anatolia • Türkiye</span>
+
+            <h1>Welcome to Bingöl</h1>
+
+            <p>
+                Discover Bingöl through its mountain landscapes, districts, local culture,
+                natural attractions and community life.
+            </p>
+
+            <div class="d-flex justify-content-center gap-3 flex-wrap mt-4">
+                <a asp-controller="City" asp-action="About" class="btn btn-primary btn-lg">
+                    Explore the City
+                </a>
+
+                <a asp-controller="District" asp-action="Index" class="btn btn-outline-light btn-lg">
+                    View Districts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Short Overview -->
+    <section class="page-panel my-5">
+        <div class="text-center mb-4">
+            <h2>About Bingöl</h2>
+            <p class="lead text-muted">
+                Bingöl is a province in Eastern Anatolia known for its natural scenery,
+                rural districts, water sources and mountain landscapes.
+            </p>
+        </div>
+
+        <div class="row g-4 text-center">
+            <div class="col-md-4">
+                <div class="info-card h-100">
+                    <i class="fas fa-map-marked-alt info-icon"></i>
+                    <h4>Districts</h4>
+                    <p>
+                        Bingöl includes several districts and rural settlements.
+                        The province has 7 district governorships listed by the governor's office.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="info-card h-100">
+                    <i class="fas fa-mountain info-icon"></i>
+                    <h4>Nature</h4>
+                    <p>
+                        The region is known for mountains, valleys, waterfalls,
+                        plateaus and natural travel routes.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="info-card h-100">
+                    <i class="fas fa-users info-icon"></i>
+                    <h4>Community</h4>
+                    <p>
+                        Bingöl combines city life with village culture, local traditions,
+                        cuisine and seasonal activities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Places -->
+    <section class="my-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title-light">Featured Places</h2>
+            <p class="section-subtitle-light">
+                A short visual overview of Bingöl's nature, districts and cultural atmosphere.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="place-card h-100">
+                    <img src="~/images/waterfall.jpg" alt="Çır Waterfall" />
+                    <div class="place-card-body">
+                        <h5>Çır Waterfall</h5>
+                        <p>
+                            One of the well-known natural attractions associated with Bingöl's
+                            mountain and water landscapes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="place-card h-100">
+                    <img src="~/images/bingol5.jpg" alt="Bingöl lake landscape" />
+                    <div class="place-card-body">
+                        <h5>Lake and Mountain Views</h5>
+                        <p>
+                            Bingöl is associated with water sources, highland scenery and calm
+                            natural areas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="place-card h-100">
+                    <img src="~/images/bingol3.jpg" alt="Rock formations in Bingöl" />
+                    <div class="place-card-body">
+                        <h5>Rock Formations</h5>
+                        <p>
+                            The wider region includes distinctive rocky landscapes and natural
+                            formations such as Buban Fairy Chimneys.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- District Preview -->
+    <section class="page-panel my-5">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-6">
+                <h2>District Landscapes</h2>
+                <p class="text-muted">
+                    Bingöl's districts show different aspects of the province:
+                    city center views, rural settlements, valleys, roads, rivers and
+                    mountain surroundings.
+                </p>
+
+                <a asp-controller="District" asp-action="Index" class="btn btn-primary">
+                    Open Districts
+                </a>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <img src="~/images/bingol-merkez.jpg" class="img-fluid rounded district-preview-img" alt="Bingöl city center" />
+                    </div>
+                    <div class="col-6">
+                        <img src="~/images/bingol-solhan.jpg" class="img-fluid rounded district-preview-img" alt="Solhan district view" />
+                    </div>
+                    <div class="col-6">
+                        <img src="~/images/bingol-genc.jpg" class="img-fluid rounded district-preview-img" alt="Genç district view" />
+                    </div>
+                    <div class="col-6">
+                        <img src="~/images/bingol-yedisu.jpg" class="img-fluid rounded district-preview-img" alt="Yedisu district view" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Culture and Food -->
+    <section class="my-5">
+        <div class="text-center mb-4">
+            <h2 class="section-title-light">Culture and Local Life</h2>
+            <p class="section-subtitle-light">
+                Food, folk culture and everyday community life are also part of Bingöl's identity.
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-3 col-6">
+                <div class="place-card h-100">
+                    <img src="~/images/corek.jpg" alt="Traditional pastry" />
+                    <div class="place-card-body">
+                        <h6>Traditional Pastry</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <div class="place-card h-100">
+                    <img src="~/images/kebap.jpg" alt="Local meat dish" />
+                    <div class="place-card-body">
+                        <h6>Local Cuisine</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <div class="place-card h-100">
+                    <img src="~/images/folk3.jpg" alt="Folk dance" />
+                    <div class="place-card-body">
+                        <h6>Folk Culture</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-6">
+                <div class="place-card h-100">
+                    <img src="~/images/bazaar.jpg" alt="Traditional bazaar" />
+                    <div class="place-card-body">
+                        <h6>Local Market</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</section>
